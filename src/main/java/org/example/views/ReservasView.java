@@ -32,6 +32,7 @@ public class ReservasView extends JFrame {
 	public static JDateChooser txtFechaSalida;
 	public static JComboBox<String> txtFormaPago;
 	public static Button btnsiguiente;
+
 	public static JPanel btnAtras = new JPanel();
 	public static JPanel btnexit=new JPanel();
 	int xMouse, yMouse;
@@ -100,28 +101,28 @@ public class ReservasView extends JFrame {
 		separator_1_1.setBackground(SystemColor.textHighlight);
 		panel.add(separator_1_1);
 
-		JLabel lblCheckIn = new JLabel("FECHA DE CHECK IN");
+		JLabel lblCheckIn = new JLabel("Check-in date");
 		lblCheckIn.setForeground(SystemColor.textInactiveText);
 		lblCheckIn.setBounds(68, 136, 169, 14);
-		lblCheckIn.setFont(new Font("Roboto Black", Font.PLAIN, 18));
+		lblCheckIn.setFont(new Font("Roboto Black", Font.PLAIN, 17));
 		panel.add(lblCheckIn);
 
-		JLabel lblCheckOut = new JLabel("FECHA DE CHECK OUT");
+		JLabel lblCheckOut = new JLabel("Check-out date");
 		lblCheckOut.setForeground(SystemColor.textInactiveText);
 		lblCheckOut.setBounds(68, 221, 187, 14);
-		lblCheckOut.setFont(new Font("Roboto Black", Font.PLAIN, 18));
+		lblCheckOut.setFont(new Font("Roboto Black", Font.PLAIN, 17));
 		panel.add(lblCheckOut);
 
-		JLabel lblFormaPago = new JLabel("FORMA DE PAGO");
+		JLabel lblFormaPago = new JLabel("Payment method");
 		lblFormaPago.setForeground(SystemColor.textInactiveText);
 		lblFormaPago.setBounds(68, 382, 187, 24);
-		lblFormaPago.setFont(new Font("Roboto Black", Font.PLAIN, 18));
+		lblFormaPago.setFont(new Font("Roboto Black", Font.PLAIN, 17));
 		panel.add(lblFormaPago);
 
-		JLabel lblTitulo = new JLabel("SISTEMA DE RESERVAS");
+		JLabel lblTitulo = new JLabel("Reservation system");
 		lblTitulo.setBounds(109, 60, 219, 42);
 		lblTitulo.setForeground(new Color(12, 138, 199));
-		lblTitulo.setFont(new Font("Roboto", Font.BOLD, 20));
+		lblTitulo.setFont(new Font("Roboto", Font.BOLD, 17));
 		panel.add(lblTitulo);
 
 		JPanel panel_1 = new JPanel();
@@ -141,7 +142,7 @@ public class ReservasView extends JFrame {
 		imagenFondo.setBackground(Color.WHITE);
 		imagenFondo.setIcon(new ImageIcon("src/main/java/org/example/imgs/reservas-img-3.png"));
 
-		JLabel lblValor = new JLabel("VALOR DE LA RESERVA");
+		JLabel lblValor = new JLabel("Booking value");
 		lblValor.setForeground(SystemColor.textInactiveText);
 		lblValor.setBounds(72, 303, 196, 14);
 		lblValor.setFont(new Font("Roboto Black", Font.PLAIN, 18));
@@ -185,6 +186,25 @@ public class ReservasView extends JFrame {
 		header.setBackground(Color.WHITE);
 		panel.add(header);
 
+		JPanel btnAtras = new JPanel();
+		btnAtras.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				MenuUsuario usuario = new MenuUsuario();
+				usuario.setVisible(true);
+				dispose();
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnAtras.setBackground(new Color(12, 138, 199));
+				labelAtras.setForeground(Color.white);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnAtras.setBackground(Color.white);
+				labelAtras.setForeground(Color.black);
+			}
+		});
 		btnAtras.setLayout(null);
 		btnAtras.setBackground(Color.WHITE);
 		btnAtras.setBounds(0, 0, 53, 36);
@@ -201,6 +221,8 @@ public class ReservasView extends JFrame {
 		lblSiguiente.setForeground(Color.WHITE);
 		lblSiguiente.setFont(new Font("Roboto", Font.PLAIN, 18));
 		lblSiguiente.setBounds(0, 0, 122, 35);
+
+
 
 
 		//Campos que guardaremos en la base de datos
@@ -244,6 +266,24 @@ public class ReservasView extends JFrame {
 		panel.add(txtValor);
 		txtValor.setColumns(10);
 
+
+		JPanel btnexit = new JPanel();
+		btnexit.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.exit(0);
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnexit.setBackground(Color.red);
+				labelExit.setForeground(Color.white);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnexit.setBackground(Color.white);
+				labelExit.setForeground(Color.black);
+			}
+		});
 
 		txtFormaPago = new JComboBox();
 		txtFormaPago.setBounds(68, 417, 289, 38);

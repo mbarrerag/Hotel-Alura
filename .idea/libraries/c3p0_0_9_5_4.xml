@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="c3p0-0.9.5.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/challenge-one-alura-hotel-latam-repositorio-base/challenge-one-alura-hotel-latam-repositorio-base/JARS/c3p0-0.9.5.4.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/challenge-one-alura-hotel-latam-repositorio-base/challenge-one-alura-hotel-latam-repositorio-base/JARS/jcalendar-1.4.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/challenge-one-alura-hotel-latam-repositorio-base/challenge-one-alura-hotel-latam-repositorio-base/JARS/mchange-commons-java-0.2.16.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/challenge-one-alura-hotel-latam-repositorio-base/challenge-one-alura-hotel-latam-repositorio-base/JARS/mysql-connector-j-8.0.32.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
