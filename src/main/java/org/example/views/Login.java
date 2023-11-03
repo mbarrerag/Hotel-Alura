@@ -17,7 +17,6 @@ import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import javax.swing.Icon;
 
 public class Login extends JFrame {
 
@@ -231,7 +230,7 @@ public class Login extends JFrame {
         String entryPassword =new String (txtContrasena.getPassword());
 
         if(txtUsuario.getText().equals(username) && entryPassword.equals(password)){
-            MenuUsuario menu = new MenuUsuario();
+            UserMenu menu = new UserMenu();
             menu.setVisible(true);
             dispose();
         }else {

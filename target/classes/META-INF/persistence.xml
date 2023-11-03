@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- This is a JPA and Hibernate configuration file -->
 <persistence version="2.1"
              xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence"
 >
-    <persistence-unit name="hotel" transaction-type="RESOURCE_LOCAL">
-        <class>org.example.hotel.modelo.Huesped</class>
-        <class>org.example.hotel.modelo.Reserva</class>
+    <persistence-unit name="alura-hotel" transaction-type="RESOURCE_LOCAL">
+        <!-- Include entity classes -->
+
+        <class>org.example.logic.entitites.Huesped</class>
+        <class>org.example.logic.entitites.Reserve</class>
+
+        <!-- Database connection properties -->
+
         <properties>
+
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:hotel"/>
-            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.user" value=""/>
             <property name="javax.persistence.jdbc.password" value=""/>
+
+            <!-- Hibernate properties -->
 
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
