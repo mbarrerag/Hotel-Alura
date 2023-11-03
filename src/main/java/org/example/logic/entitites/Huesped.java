@@ -22,9 +22,9 @@ public class Huesped {
         @OneToMany(mappedBy = "huesped")
         private List<Reserve> reserves;
 
-
-
-
+        public void setName(String name) {
+            this.name = name;
+        }
         public Long getId() {
             return Id;
         }
@@ -48,6 +48,7 @@ public class Huesped {
         public String getCellphone() {
             return Cellphone;
         }
+
 
         public List<Reserve> getReserves() {
             return reserves;
