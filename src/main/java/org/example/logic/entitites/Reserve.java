@@ -25,24 +25,47 @@ public class Reserve {
         return Id;
     }
 
+    public void setId(Long id) {
+        Id = id;
+    }
+
     public Date getCheckIn() {
         return checkIn;
+    }
+
+    public void setCheckIn(Date checkIn) {
+        this.checkIn = checkIn;
     }
 
     public Date getCheckOut() {
         return checkOut;
     }
 
+    public void setCheckOut(Date checkOut) {
+        this.checkOut = checkOut;
+    }
+
     public Double getBookingValue() {
         return bookingValue;
     }
 
+    public void setBookingValue(Double bookingValue) {
+        this.bookingValue = bookingValue;
+    }
+
     public String getPaymentMethod() {
         return paymentMethod;
+    }
+/*aas*/
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
     public Huesped getHuesped() {
         return huesped;
     }
 
+    public void setHuesped(Huesped huesped) {
+        this.huesped = huesped;
+    }
 }
