@@ -1,7 +1,8 @@
 <component name="libraryTable">
   <library name="mchange-commons-java-0.2.16">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/challenge-one-alura-hotel-latam-repositorio-base/challenge-one-alura-hotel-latam-repositorio-base/JARS/mchange-commons-java-0.2.16.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/Libraries/mchange-commons-java-0.2.16.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/Libraries/mysql-connector-j-8.0.32.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
