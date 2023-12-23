@@ -4,12 +4,12 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-public class Huesped {
+
 
 
     @Entity
     @Table(name = "huesped")
-    public class  huesped {
+    public class  Huesped {
 
 
         @Id
@@ -69,7 +69,7 @@ public class Huesped {
         }
 
         public void setCellphone(String cellphone) {
-            cellphone = cellphone;
+            this.cellphone = cellphone;
         }
 
         public List<Reserve> getReserves() {
@@ -80,4 +80,4 @@ public class Huesped {
             this.reserves = reserves;
         }
     }
-}
+

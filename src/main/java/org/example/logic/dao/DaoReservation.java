@@ -21,8 +21,15 @@ public class DaoReservation {
       em.getTransaction().begin();
 
       try{
+          Huesped huesped = new Huesped();
+          huesped.setName("Juan");
+          huesped.setCellphone("123456789");
+          huesped.setBirthdate(null);
           Reserve reserve = new Reserve();
-          reserve.setPaymentMethod("Credit Card");
+          reserve.setHuesped(huesped);
+
+
+
           DaoReservation daoReservation = new DaoReservation(em);
             daoReservation.save(reserve);
             em.getTransaction().commit();

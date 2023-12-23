@@ -1,5 +1,6 @@
 package org.example.logic.entitites;
 import  javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -15,7 +16,7 @@ public class Reserve {
     private Long Id;
     private Date checkIn;
     private Date checkOut;
-    private Double bookingValue;
+    private BigDecimal bookingValue;
     private String paymentMethod;
 
     @ManyToOne
@@ -46,11 +47,11 @@ public class Reserve {
         this.checkOut = checkOut;
     }
 
-    public Double getBookingValue() {
+    public BigDecimal getBookingValue() {
         return bookingValue;
     }
 
-    public void setBookingValue(Double bookingValue) {
+    public void setBookingValue(BigDecimal bookingValue) {
         this.bookingValue = bookingValue;
     }
 
