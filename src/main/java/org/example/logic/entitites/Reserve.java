@@ -7,6 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "reserve")
+/*Used to specify the name*/
 public class Reserve {
 
     @Id
@@ -56,7 +57,7 @@ public class Reserve {
     public String getPaymentMethod() {
         return paymentMethod;
     }
-/*aas*/
+
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
     }

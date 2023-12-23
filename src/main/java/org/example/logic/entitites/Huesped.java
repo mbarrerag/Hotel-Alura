@@ -20,7 +20,7 @@ public class Huesped {
         private String surename;
         private Date birthdate;
         private String nationality;
-        private String Cellphone;
+        private String cellphone;
         @OneToMany(mappedBy = "huesped")
         private List<Reserve> reserves;
 
@@ -65,11 +65,11 @@ public class Huesped {
         }
 
         public String getCellphone() {
-            return Cellphone;
+            return cellphone;
         }
 
         public void setCellphone(String cellphone) {
-            Cellphone = cellphone;
+            cellphone = cellphone;
         }
 
         public List<Reserve> getReserves() {
