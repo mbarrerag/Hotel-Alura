@@ -21,7 +21,7 @@ import javax.persistence.Table;
         private Date birthdate;
         private String nationality;
         private String cellphone;
-        @OneToMany(mappedBy = "huesped")
+       @OneToMany(mappedBy = "huesped")
         private List<Reserve> reserves;
 
         public Long getId() {
