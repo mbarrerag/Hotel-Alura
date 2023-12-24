@@ -29,10 +29,7 @@ public class RegisteReserve {
         reserve.setBookingValue(null);
         reserve.setCheckOut(null);
         reserve.setCheckIn(null);
-
-        // Set the previously persisted Huesped instance
-        reserve.setHuesped(huesped);
-
+        daoReservation.save(reserve);
         // Now persist the Reserve instance
         daoReservation.save(reserve);
 
