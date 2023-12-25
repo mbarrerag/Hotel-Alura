@@ -1,6 +1,6 @@
 package org.example.logic.dao;
 
-import org.example.logic.entitites.Reserve;
+import org.example.logic.entitites.Huesped;
 
 import javax.persistence.EntityManager;
 
@@ -10,7 +10,7 @@ public class DaoHuesped {
     public DaoHuesped(EntityManager em){
         this.em=em;
     }
-    public void save(Reserve reserve){
+    public void save(Huesped reserve){
         this.em.persist(reserve);
     }
 

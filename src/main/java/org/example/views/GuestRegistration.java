@@ -1,24 +1,25 @@
 package org.example.views;
 
-import java.awt.EventQueue;
+import java.awt.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
-import java.awt.Color;
+
 import com.toedter.calendar.JDateChooser;
+import org.example.logic.controller.RegisteGuest;
+import org.example.logic.controller.RegisteReserve;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
-import java.awt.Font;
 import javax.swing.ImageIcon;
-import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.math.BigDecimal;
 import java.text.Format;
-import java.awt.Toolkit;
+import java.util.Date;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 
@@ -280,12 +281,18 @@ public class GuestRegistration extends JFrame {
 		btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		
 		JLabel labelGuardar = new JLabel("Save");
+
 		labelGuardar.setHorizontalAlignment(SwingConstants.CENTER);
 		labelGuardar.setForeground(Color.WHITE);
 		labelGuardar.setFont(new Font("Roboto", Font.PLAIN, 18));
 		labelGuardar.setBounds(0, 0, 122, 35);
 		btnguardar.add(labelGuardar);
-		
+		btnguardar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			btnguardar();
+			}
+		});
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 489, 634);
 		panel.setBackground(new Color(12, 138, 199));
@@ -317,5 +324,20 @@ public class GuestRegistration extends JFrame {
 	        int y = evt.getYOnScreen();
 	        this.setLocation(x - xMouse, y - yMouse);
 }
+	public void btnguardar(){
+
+		UserMenu menu = new UserMenu();
+		menu.setVisible(true);
+		dispose();
+	    String nombre = txtNombre.getText();
+		String apellido = txtApellido.getText();
+		Date fechaN = txtFechaN.getDate();
+		String nacionalidad = txtNacionalidad.getSelectedItem().toString();
+		String telefono = txtTelefono.getText();
+		Long nReserva = Long.parseLong(txtNreserva.getText());
+		RegisteGuest registeGuest = new RegisteGuest(nombre,apellido,fechaN,nacionalidad,telefono);
+
+	}
+
 											
 }
