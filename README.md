@@ -1,7 +1,7 @@
 
 # Hotel Alura - Java Application with Hibernate ORM
 
-Hotel Alura is a simple Java application designed for managing hotel-related information using Hibernate as an Object-Relational Mapping (ORM) tool. This application allows you to perform CRUD (Create, Read, Update, Delete) operations on hotel entities, utilizing the power of Hibernate to interact with the underlying relational database.
+Hotel Alura is a simple Java application designed for managing hotel-related information using Hibernate as an Object-Relational Mapping (ORM) tool. This application allows you to perform CRUD (Create, Read, Update, Delete) operations on hotel entities, utilizing the power of Hibernate to interact with the underlying relational database. It has a basically login with the correspond procedure to save information about reserves and huespeds
 
 ## Requirements
 
