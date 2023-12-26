@@ -1,30 +1,66 @@
-# Alura Hotel Java Application
 
-Welcome to the Alura Hotel Java application! This application is designed to manage the operations of a hotel using Java, JPA (Java Persistence API), and Hibernate as the Object-Relational Mapping (ORM) framework.
+# Hotel Alura - Java Application with Hibernate ORM
 
-## Introduction
+Hotel Alura is a simple Java application designed for managing hotel-related information using Hibernate as an Object-Relational Mapping (ORM) tool. This application allows you to perform CRUD (Create, Read, Update, Delete) operations on hotel entities, utilizing the power of Hibernate to interact with the underlying relational database.
 
-The Alura Hotel Java application is a comprehensive system for managing hotel operations. It leverages the power of JPA and Hibernate to handle database operations and provides a user-friendly interface for both staff and guests.
+## Requirements
 
-## Features
+- Java Development Kit (JDK) 8 or later
+- Hibernate ORM
+- Database (e.g., MySQL, PostgreSQL) and corresponding JDBC driver
+- Build tool (e.g., Maven or Gradle)
 
-- **Customer Management**: Keep track of guest reservations, personal information, and preferences.
-- **Room Booking**: Efficiently manage room reservations, availability, and pricing.
-- **Billing and Invoicing**: Generate bills and invoices for guests, including support for different payment methods.
-- **Room Maintenance**: Schedule and track maintenance tasks for hotel rooms.
-- **Reporting**: Generate reports on occupancy, revenue, and other important metrics.
-- **User Access Control**: Define user roles and access permissions for hotel staff.
+## Setup
 
-## Prerequisites
+1. **Database Configuration:**
+   - Create a database for the application (e.g., `hotel_alura`).
+   - Update the `hibernate.cfg.xml` file with your database connection details.
 
-Before you can run the Alura Hotel application, make sure you have the following prerequisites in place:
+2. **Build the Application:**
+   - Build the application using your preferred build tool. For Maven, use the command:
+     ```bash
+     mvn clean install
+     ```
 
-- Java Development Kit (JDK) 8 or higher
-- Apache Maven for building the project
-- A compatible relational database (e.g., MySQL, PostgreSQL) and the necessary connection details
-- An integrated development environment (IDE) of your choice with support for Java and Maven
+3. **Run the Application:**
+   - Run the application using the following command:
+     ```bash
+     java -jar target/hotel-alura.jar
+     ```
+   - Ensure that the Hibernate configuration and database connection are correctly set up.
 
-## Getting Started
+## Usage
 
-1. Clone or download the Alura Hotel repository to your local machine.
+The Hotel Alura application provides a simple command-line interface for performing CRUD operations on hotel entities. The application supports the following commands:
 
+- **1. Create a Hotel:**
+  - Add a new hotel to the database.
+  ```bash
+  java -jar target/hotel-alura.jar createHotel "Hotel Name" "City"
+  ```
+
+- **2. Read Hotels:**
+  - Retrieve a list of all hotels in the database.
+  ```bash
+  java -jar target/hotel-alura.jar readHotels
+  ```
+
+- **3. Update a Hotel:**
+  - Update the details of an existing hotel.
+  ```bash
+  java -jar target/hotel-alura.jar updateHotel hotelId "New Hotel Name" "New City"
+  ```
+
+- **4. Delete a Hotel:**
+  - Remove a hotel from the database.
+  ```bash
+  java -jar target/hotel-alura.jar deleteHotel hotelId
+  ```
+
+## Contributing
+
+Contributions are welcome! If you have any suggestions, improvements, or bug fixes, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
