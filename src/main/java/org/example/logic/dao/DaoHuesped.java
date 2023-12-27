@@ -3,6 +3,8 @@ package org.example.logic.dao;
 import org.example.logic.entitites.Huesped;
 
 import javax.persistence.EntityManager;
+import java.util.List;
+
 
 public class DaoHuesped {
 
@@ -12,6 +14,11 @@ public class DaoHuesped {
     }
     public void save(Huesped reserve){
         this.em.persist(reserve);
+    }
+
+    public List<Huesped> consultHuesped(){
+        String jpql = "SELECT p FROM Huesped p";
+        return em.createQuery(jpql, Huesped.class).getResultList();
     }
 
 }

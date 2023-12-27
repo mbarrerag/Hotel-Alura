@@ -104,8 +104,6 @@ public class GuestRegistration extends JFrame {
 		labelAtras.setFont(new Font("Roboto", Font.PLAIN, 23));
 		labelAtras.setBounds(0, 0, 53, 36);
 		btnAtras.add(labelAtras);
-		
-		
 		txtNombre = new JTextField();
 		txtNombre.setFont(new Font("Roboto", Font.PLAIN, 16));
 		txtNombre.setBounds(560, 135, 285, 33);
@@ -136,14 +134,11 @@ public class GuestRegistration extends JFrame {
 		btnexit.setBackground(Color.WHITE);
 		btnexit.setBounds(857, 0, 53, 36);
 		header.add(btnexit);
-
 		labelExit = new JLabel("X");
 		labelExit.setBounds(0, 0, 53, 36);
 		btnexit.add(labelExit);
 		labelExit.setHorizontalAlignment(SwingConstants.CENTER);
 		labelExit.setFont(new Font("Roboto", Font.PLAIN, 18));
-
-
 		txtApellido = new JTextField();
 		txtApellido.setFont(new Font("Roboto", Font.PLAIN, 16));
 		txtApellido.setBounds(560, 204, 285, 33);
@@ -151,7 +146,6 @@ public class GuestRegistration extends JFrame {
 		txtApellido.setBackground(Color.WHITE);
 		txtApellido.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		contentPane.add(txtApellido);
-		
 		txtFechaN = new JDateChooser();
 		txtFechaN.setBounds(560, 278, 285, 36);
 		txtFechaN.getCalendarButton().setIcon(new ImageIcon("src/main/java/org/example/imgs/icon-reservas.png"));
@@ -279,28 +273,24 @@ public class GuestRegistration extends JFrame {
 		btnguardar.setBackground(new Color(12, 138, 199));
 		contentPane.add(btnguardar);
 		btnguardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-		
 		JLabel labelGuardar = new JLabel("Save");
-
 		labelGuardar.setHorizontalAlignment(SwingConstants.CENTER);
 		labelGuardar.setForeground(Color.WHITE);
 		labelGuardar.setFont(new Font("Roboto", Font.PLAIN, 18));
 		labelGuardar.setBounds(0, 0, 122, 35);
 		btnguardar.add(labelGuardar);
 
+
+
+
 		btnguardar.addMouseListener(new MouseAdapter() {
-
-
-
-
-
 			@Override
-			public void mouseEntered(MouseEvent e) {
+			public void mouseClicked(MouseEvent e) {
 
-			btnguardar();
-
+				btnguardar();
 			}
 		});
+
 		JPanel panel = new JPanel();
 		panel.setBounds(0, 0, 489, 634);
 		panel.setBackground(new Color(12, 138, 199));
@@ -334,8 +324,8 @@ public class GuestRegistration extends JFrame {
 }
 	public void btnguardar(){
 
-		UserMenu menu = new UserMenu();
-		menu.setVisible(true);
+		SuccesesfulRegisteration succesesfulRegisteration = new SuccesesfulRegisteration();
+		succesesfulRegisteration.setVisible(true);
 		dispose();
 	    String nombre = txtNombre.getText();
 		String apellido = txtApellido.getText();

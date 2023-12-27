@@ -138,7 +138,7 @@ public class SearchReservation extends JFrame {
 			@Override
 			public void mouseDragged(MouseEvent e) {
 				headerMouseDragged(e);
-			     
+
 			}
 		});
 		header.addMouseListener(new MouseAdapter() {
@@ -218,7 +218,8 @@ public class SearchReservation extends JFrame {
 		separator_1_2.setBackground(new Color(12, 138, 199));
 		separator_1_2.setBounds(539, 159, 193, 2);
 		contentPane.add(separator_1_2);
-		
+
+
 		JPanel btnbuscar = new JPanel();
 		btnbuscar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -226,6 +227,7 @@ public class SearchReservation extends JFrame {
 
 			}
 		});
+
 		btnbuscar.setLayout(null);
 		btnbuscar.setBackground(new Color(12, 138, 199));
 		btnbuscar.setBounds(748, 125, 122, 35);
