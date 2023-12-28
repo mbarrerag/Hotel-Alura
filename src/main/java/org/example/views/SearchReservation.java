@@ -1,5 +1,7 @@
 package org.example.views;
 
+import sun.swing.FilePane;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -27,7 +29,7 @@ public class SearchReservation extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtBuscar;
 	private JTable tbHuespedes;
-	private JTable tbReservas;
+	public static JTable tbReservas;
 	private DefaultTableModel modelo;
 	private DefaultTableModel modeloHuesped;
 	private JLabel labelAtras;
