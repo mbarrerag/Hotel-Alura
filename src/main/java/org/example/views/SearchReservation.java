@@ -1,5 +1,6 @@
 package org.example.views;
 
+import org.example.logic.controller.HotelConsultService;
 import sun.swing.FilePane;
 
 import java.awt.EventQueue;
@@ -22,7 +23,7 @@ import javax.swing.ListSelectionModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-
+import org.example.logic.controller.HotelConsultService;
 @SuppressWarnings("serial")
 public class SearchReservation extends JFrame {
 
@@ -57,6 +58,7 @@ public class SearchReservation extends JFrame {
 	 * Create the frame.
 	 */
 	public SearchReservation() {
+
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/java/org/example/imgs/lupa2.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 910, 571);
@@ -153,7 +155,7 @@ public class SearchReservation extends JFrame {
 		header.setBackground(Color.WHITE);
 		header.setBounds(0, 0, 910, 36);
 		contentPane.add(header);
-		
+		HotelConsultService.loadDataReserve();
 		JPanel btnAtras = new JPanel();
 		btnAtras.addMouseListener(new MouseAdapter() {
 			@Override
@@ -272,7 +274,7 @@ public class SearchReservation extends JFrame {
 		btnEliminar.add(lblEliminar);
 		setResizable(false);
 	}
-	
+
 //Código que permite mover la ventana por la pantalla según la posición de "x" y "y"
 	 private void headerMousePressed(java.awt.event.MouseEvent evt) {
 	        xMouse = evt.getX();
@@ -284,4 +286,5 @@ public class SearchReservation extends JFrame {
 	        int y = evt.getYOnScreen();
 	        this.setLocation(x - xMouse, y - yMouse);
 }
+
 }

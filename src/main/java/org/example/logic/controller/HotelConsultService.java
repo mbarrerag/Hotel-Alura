@@ -16,7 +16,7 @@ public class HotelConsultService {
 
 
 
-    private void cargarDatosTablaReserva() {
+    public static void loadDataReserve() {
 
         DefaultTableModel modelo = (DefaultTableModel) SearchReservation.tbReservas.getModel();
         modelo.setRowCount(0);
