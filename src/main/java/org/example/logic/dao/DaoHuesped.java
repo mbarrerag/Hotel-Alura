@@ -26,13 +26,14 @@ public class DaoHuesped {
         EntityManager em = JPAUtils.getEntityManager();
         List<Huesped> huespedes = null;
         try {
-            String jpql = "SELECT h FROM Huesped h";
+            String jpql = "SELECT h FROM Huesped h LEFT JOIN FETCH h.reserves";
             huespedes = em.createQuery(jpql, Huesped.class).getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             em.close();
         }
+        System.out.println(huespedes);
         return huespedes;
     }
 

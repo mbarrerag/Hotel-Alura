@@ -99,6 +99,7 @@ public class SearchReservation extends JFrame {
 				if (tabIndex == 0) {
 					HotelConsultService.loadDataReserve();
 				} else if (tabIndex == 1) {
+					System.out.println("Entro en el if");
 					HotelConsultService.loadDataHuesped();
 				}
 			}
