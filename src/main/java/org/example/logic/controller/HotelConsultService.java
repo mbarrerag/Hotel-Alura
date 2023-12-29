@@ -37,6 +37,31 @@ public class HotelConsultService {
         }
     }
 
+    public static void loadDataHuesped() {
+
+        DefaultTableModel modelo = (DefaultTableModel) SearchReservation.tbHuesped.getModel();
+        modelo.setRowCount(0);
+
+        EntityManager em = JPAUtils.getEntityManager();
+        DaoHuesped huespedDao = new DaoHuesped(em);
+        List<Huesped> huespeds = huespedDao.getAllHuespedes();
+
+        for (Huesped huesped : huespeds) {
+            List<Reserve> reservas = huesped.getReserves();
+            long numreservas=reservas.size();
+            Object[] fila = new Object[]{
+                    huesped.getId(),
+                    huesped.getName(),
+                    huesped.getSurename(),
+                    huesped.getBirthdate(),
+                    huesped.getNationality(),
+                    huesped.getCellphone(),
+
+            };
+            modelo.addRow(fila);
+
+        }
+    }
 
 
 }

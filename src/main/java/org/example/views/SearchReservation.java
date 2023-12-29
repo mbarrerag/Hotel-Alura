@@ -31,6 +31,7 @@ public class SearchReservation extends JFrame {
 	private JTextField txtBuscar;
 	private JTable tbHuespedes;
 	public static JTable tbReservas;
+	public static JTable tbHuesped;
 	private DefaultTableModel modelo;
 	private DefaultTableModel modeloHuesped;
 	private JLabel labelAtras;
@@ -96,11 +97,10 @@ public class SearchReservation extends JFrame {
 		tbReservas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tbReservas.setFont(new Font("Roboto", Font.PLAIN, 16));
 		modelo = (DefaultTableModel) tbReservas.getModel();
-		modelo.addColumn("Numero de Reserva");
-		modelo.addColumn("Fecha Check In");
-		modelo.addColumn("Fecha Check Out");
-		modelo.addColumn("Valor");
-		modelo.addColumn("Forma de Pago");
+		modelo.addColumn("Check-in date");
+		modelo.addColumn("Check-out date");
+		modelo.addColumn("Booking date");
+		modelo.addColumn("Payment method");
 		JScrollPane scroll_table = new JScrollPane(tbReservas);
 
 		// Load the image from the file system
@@ -121,17 +121,17 @@ public class SearchReservation extends JFrame {
 		tbHuespedes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tbHuespedes.setFont(new Font("Roboto", Font.PLAIN, 16));
 		modeloHuesped = (DefaultTableModel) tbHuespedes.getModel();
-		modeloHuesped.addColumn("Número de Huesped");
-		modeloHuesped.addColumn("Nombre");
-		modeloHuesped.addColumn("Apellido");
-		modeloHuesped.addColumn("Fecha de Nacimiento");
-		modeloHuesped.addColumn("Nacionalidad");
-		modeloHuesped.addColumn("Telefono");
-		modeloHuesped.addColumn("Número de Reserva");
+		modeloHuesped.addColumn("Huesped number");
+		modeloHuesped.addColumn("Name");
+		modeloHuesped.addColumn("Surname");
+		modeloHuesped.addColumn("Birthdate");
+		modeloHuesped.addColumn("Nationality");
+		modeloHuesped.addColumn("Cellphone");
+		modeloHuesped.addColumn("Reservation Number");
 		JScrollPane scroll_tableHuespedes = new JScrollPane(tbHuespedes);
 		panel.addTab("Huéspedes", new ImageIcon("src/main/java/org/example/imgs/pessoas.png"), scroll_tableHuespedes, null);
 		scroll_tableHuespedes.setVisible(true);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon("src/main/java/org/example/imgs/Ha-100px.png"));
 		lblNewLabel_2.setBounds(56, 51, 104, 107);

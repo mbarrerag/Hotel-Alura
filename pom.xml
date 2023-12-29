@@ -51,5 +51,10 @@
             <artifactId>user.java.time</artifactId>
             <version>2020.267.10158</version>
         </dependency>
+        <dependency>
+            <groupId>cljs.java-time</groupId>
+            <artifactId>cljs.java-time</artifactId>
+            <version>0.1.19</version>
+        </dependency>
     </dependencies>
 </project>
