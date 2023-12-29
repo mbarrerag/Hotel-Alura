@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -29,9 +30,9 @@ public class SearchReservation extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtBuscar;
-	private JTable tbHuespedes;
+	public static JTable tbHuespedes;
 	public static JTable tbReservas;
-	public static JTable tbHuesped;
+
 	private DefaultTableModel modelo;
 	private DefaultTableModel modeloHuesped;
 	private JLabel labelAtras;
@@ -54,6 +55,7 @@ public class SearchReservation extends JFrame {
 
 		});
 	}
+
 
 	/**
 	 * Create the frame.
@@ -89,6 +91,18 @@ public class SearchReservation extends JFrame {
 		panel.setFont(new Font("Roboto", Font.PLAIN, 16));
 		panel.setBounds(20, 169, 865, 328);
 		contentPane.add(panel);
+		panel.addChangeListener(new ChangeListener() {
+			@Override
+			public void stateChanged(javax.swing.event.ChangeEvent e) {
+				int tabIndex = panel.getSelectedIndex();
+
+				if (tabIndex == 0) {
+					HotelConsultService.loadDataReserve();
+				} else if (tabIndex == 1) {
+					HotelConsultService.loadDataHuesped();
+				}
+			}
+		});
 
 		
 		
@@ -115,8 +129,10 @@ public class SearchReservation extends JFrame {
 
 		panel.addTab("Reservas", new ImageIcon("org/example/imgs/reservado.png"), scroll_table, null);
 		scroll_table.setVisible(true);
-		
-		
+
+
+
+
 		tbHuespedes = new JTable();
 		tbHuespedes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		tbHuespedes.setFont(new Font("Roboto", Font.PLAIN, 16));
@@ -155,7 +171,7 @@ public class SearchReservation extends JFrame {
 		header.setBackground(Color.WHITE);
 		header.setBounds(0, 0, 910, 36);
 		contentPane.add(header);
-		HotelConsultService.loadDataReserve();
+
 		JPanel btnAtras = new JPanel();
 		btnAtras.addMouseListener(new MouseAdapter() {
 			@Override
@@ -286,5 +302,6 @@ public class SearchReservation extends JFrame {
 	        int y = evt.getYOnScreen();
 	        this.setLocation(x - xMouse, y - yMouse);
 }
+
 
 }
