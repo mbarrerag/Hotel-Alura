@@ -39,6 +39,9 @@ public class ReservationsView extends JFrame {
 	public static JComboBox<String> txtFormaPago;
 	public static Button btnsiguiente;
 
+	public JPanel btnEditar=new JPanel();
+	public JPanel btnEliminar = new JPanel();
+
 	public static JPanel btnAtras = new JPanel();
 	public static JPanel btnexit=new JPanel();
 	int xMouse, yMouse;
@@ -86,6 +89,8 @@ public class ReservationsView extends JFrame {
 		panel.setBackground(Color.WHITE);
 		panel.setBounds(0, 0, 910, 560);
 		contentPane.add(panel);
+
+
 		panel.setLayout(null);
 
 		// Código que crea los elementos de la interfáz gráfica
@@ -340,6 +345,37 @@ public class ReservationsView extends JFrame {
 		btnsiguiente.setForeground(Color.WHITE);
 		panel.add(btnsiguiente);
 		btnsiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+		btnEditar.setLayout(null);
+		btnEditar.setBackground(new Color(12, 138, 199));
+		btnEditar.setBounds(635, 508, 122, 35);
+		btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		contentPane.add(btnEditar);
+
+		JLabel lblEditar = new JLabel("EDITAR");
+		lblEditar.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEditar.setForeground(Color.WHITE);
+		lblEditar.setFont(new Font("Roboto", Font.PLAIN, 18));
+		lblEditar.setBounds(0, 0, 122, 35);
+		btnEditar.add(lblEditar);
+
+
+		btnEliminar.setLayout(null);
+		btnEliminar.setBackground(new Color(12, 138, 199));
+		btnEliminar.setBounds(767, 508, 122, 35);
+		btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+		contentPane.add(btnEliminar);
+
+		JLabel lblEliminar = new JLabel("ELIMINAR");
+		lblEliminar.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEliminar.setForeground(Color.WHITE);
+		lblEliminar.setFont(new Font("Roboto", Font.PLAIN, 18));
+		lblEliminar.setBounds(0, 0, 122, 35);
+		btnEliminar.add(lblEliminar);
+		setResizable(false);
+
+
+
 	}
 	public void nextBottom(){
 		GuestRegistration menu = new GuestRegistration();
@@ -364,6 +400,9 @@ public class ReservationsView extends JFrame {
 		}
 		return 0;
 	}
+
+
+
 	//Código que permite mover la ventana por la pantalla según la posición de "x" y "y"
 	 private void headerMousePressed(java.awt.event.MouseEvent evt) {
 	        xMouse = evt.getX();
