@@ -9,8 +9,6 @@ import org.example.views.SearchReservation;
 
 import javax.persistence.EntityManager;
 import javax.swing.table.DefaultTableModel;
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 public class HotelConsultService {
@@ -66,24 +64,4 @@ public class HotelConsultService {
     }
 
 
-    private void UpdateReserve() {
-
-        EntityManager em = JPAUtils.getEntityManager();
-        DaoReservation reserveDao = new DaoReservation(em);
-        int selectedRow = SearchReservation.tbReservas.getSelectedRow();
-        if (selectedRow != -1) {  // Si hay una fila seleccionada
-            Long idReserve = (Long) SearchReservation.tbReservas.getValueAt(selectedRow, 0);
-            Reserve reserve = reserveDao.getById(idReserve);
-
-            reserve.setCheckIn((Date) SearchReservation.tbReservas.getValueAt(selectedRow, 1));
-            reserve.setCheckOut((Date) SearchReservation.tbReservas.getValueAt(selectedRow, 2));
-            BigDecimal valor = (BigDecimal) SearchReservation.tbReservas.getValueAt(selectedRow, 3);
-            reserve.setBookingValue(valor);
-            reserve.setPaymentMethod((String)SearchReservation.tbReservas.getValueAt(selectedRow, 4));
-
-            reserveDao.update(reserve);
-            em.refresh(reserve);
-            loadDataReserve();
-        }
-    }
 }
