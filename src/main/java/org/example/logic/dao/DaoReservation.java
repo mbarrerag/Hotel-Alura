@@ -35,7 +35,7 @@ public class DaoReservation {
         try {
             // Obtenemos la reserva actual de la base de datos por su id
             Reserve reservaPersistente = em.find(Reserve.class, reserva.getId());
-
+            System.out.println("reservaPersistente"+reserva.getPaymentMethod()+reserva.getCheckIn());
             // Actualizamos los campos de la reserva persistente con los de la nueva reserva
             reservaPersistente.setCheckIn(reserva.getCheckIn());
             reservaPersistente.setCheckOut(reserva.getCheckOut());

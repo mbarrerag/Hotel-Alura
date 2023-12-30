@@ -125,7 +125,7 @@ public class UserMenu extends JFrame {
 			}
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				SearchReservation searchReservation = new SearchReservation();
+				SearchReservations searchReservation = new SearchReservations();
 				searchReservation.setVisible(true);
 				dispose();
 			}

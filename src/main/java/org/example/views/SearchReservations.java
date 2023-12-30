@@ -1,7 +1,6 @@
 package org.example.views;
 
 import org.example.logic.controller.HotelConsultService;
-import sun.swing.FilePane;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -24,15 +23,16 @@ import javax.swing.ListSelectionModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import org.example.logic.controller.HotelConsultService;
+
 @SuppressWarnings("serial")
-public class SearchReservation extends JFrame {
+public class SearchReservations extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtBuscar;
 	public static JTable tbHuespedes;
 	public static JTable tbReservas;
-
+	public JPanel btnEditar=new JPanel();
+	public JPanel btnEliminar = new JPanel();
 	private DefaultTableModel modelo;
 	private DefaultTableModel modeloHuesped;
 	private JLabel labelAtras;
@@ -46,7 +46,7 @@ public class SearchReservation extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SearchReservation frame = new SearchReservation();
+					SearchReservations frame = new SearchReservations();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -60,7 +60,7 @@ public class SearchReservation extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public SearchReservation() {
+	public SearchReservations() {
 
 		setIconImage(Toolkit.getDefaultToolkit().getImage("src/main/java/org/example/imgs/lupa2.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -104,6 +104,9 @@ public class SearchReservation extends JFrame {
 				}
 			}
 		});
+
+
+
 
 		
 		
@@ -275,7 +278,23 @@ public class SearchReservation extends JFrame {
 		lblEditar.setFont(new Font("Roboto", Font.PLAIN, 18));
 		lblEditar.setBounds(0, 0, 122, 35);
 		btnEditar.add(lblEditar);
-		
+
+		btnEditar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int tabIndex = panel.getSelectedIndex();
+
+				if (tabIndex == 0) {
+					HotelConsultService.UpdateReserve();
+				} else if (tabIndex == 1) {
+
+					HotelConsultService.UpdateReserve();
+
+				}
+			}
+		});
+
+
 		JPanel btnEliminar = new JPanel();
 		btnEliminar.setLayout(null);
 		btnEliminar.setBackground(new Color(12, 138, 199));

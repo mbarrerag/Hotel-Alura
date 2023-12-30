@@ -1,11 +1,11 @@
 package org.example.logic.controller;
-import org.example.views.SearchReservation;
+import org.example.views.SearchReservations;
 import org.example.logic.dao.DaoHuesped;
 import org.example.logic.dao.DaoReservation;
 import org.example.logic.entitites.Huesped;
 import org.example.logic.entitites.Reserve;
 import org.example.logic.utils.JPAUtils;
-import org.example.views.SearchReservation;
+import org.example.views.SearchReservations;
 
 import javax.persistence.EntityManager;
 import javax.swing.table.DefaultTableModel;
@@ -20,7 +20,7 @@ public class HotelConsultService {
 
     public static void loadDataReserve() {
 
-        DefaultTableModel modelo = (DefaultTableModel) SearchReservation.tbReservas.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) SearchReservations.tbReservas.getModel();
         modelo.setRowCount(0);
 
         EntityManager em = JPAUtils.getEntityManager();
@@ -29,7 +29,6 @@ public class HotelConsultService {
 
         for (Reserve reserve : reserves) {
             Object[] fila = new Object[]{
-                    reserve.getId(),
                     reserve.getCheckIn(),
                     reserve.getCheckOut(),
                     reserve.getBookingValue(),
@@ -41,7 +40,7 @@ public class HotelConsultService {
 
     public static void loadDataHuesped() {
 
-        DefaultTableModel modelo = (DefaultTableModel) SearchReservation.tbHuespedes.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) SearchReservations.tbHuespedes.getModel();
         modelo.setRowCount(0);
 
         EntityManager em = JPAUtils.getEntityManager();
@@ -66,24 +65,50 @@ public class HotelConsultService {
     }
 
 
-    private void UpdateReserve() {
-
+    public static void UpdateReserve() {
         EntityManager em = JPAUtils.getEntityManager();
         DaoReservation reserveDao = new DaoReservation(em);
-        int selectedRow = SearchReservation.tbReservas.getSelectedRow();
-        if (selectedRow != -1) {  // Si hay una fila seleccionada
-            Long idReserve = (Long) SearchReservation.tbReservas.getValueAt(selectedRow, 0);
-            Reserve reserve = reserveDao.getById(idReserve);
+        int selectedRow = SearchReservations.tbReservas.getSelectedRow();
 
-            reserve.setCheckIn((Date) SearchReservation.tbReservas.getValueAt(selectedRow, 1));
-            reserve.setCheckOut((Date) SearchReservation.tbReservas.getValueAt(selectedRow, 2));
-            BigDecimal valor = (BigDecimal) SearchReservation.tbReservas.getValueAt(selectedRow, 3);
-            reserve.setBookingValue(valor);
-            reserve.setPaymentMethod((String)SearchReservation.tbReservas.getValueAt(selectedRow, 4));
+        if (selectedRow != -1) {  // If a row is selected
+            Object idReserveObject = SearchReservations.tbReservas.getValueAt(selectedRow, 0);
 
-            reserveDao.update(reserve);
-            em.refresh(reserve);
-            loadDataReserve();
+            if (idReserveObject instanceof Long) {
+                // If it's already a Long, no need to cast
+                Long idReserve = (Long) idReserveObject;
+
+                Reserve reserve = reserveDao.getById(idReserve);
+
+                reserve.setCheckIn((Date) SearchReservations.tbReservas.getValueAt(selectedRow, 1));
+                reserve.setCheckOut((Date) SearchReservations.tbReservas.getValueAt(selectedRow, 2));
+                BigDecimal valor = (BigDecimal) SearchReservations.tbReservas.getValueAt(selectedRow, 3);
+                reserve.setBookingValue(valor);
+                reserve.setPaymentMethod((String) SearchReservations.tbReservas.getValueAt(selectedRow, 4));
+
+                reserveDao.update(reserve);
+                em.refresh(reserve);
+                loadDataReserve();
+            } else if (idReserveObject instanceof String) {
+                // If it's a String, parse it to Long
+                try {
+                    Long idReserve = Long.parseLong((String) idReserveObject);
+                    Reserve reserve = reserveDao.getById(idReserve);
+
+                    reserve.setCheckIn((Date) SearchReservations.tbReservas.getValueAt(selectedRow, 1));
+                    reserve.setCheckOut((Date) SearchReservations.tbReservas.getValueAt(selectedRow, 2));
+                    BigDecimal valor = (BigDecimal) SearchReservations.tbReservas.getValueAt(selectedRow, 3);
+                    reserve.setBookingValue(valor);
+                    reserve.setPaymentMethod((String) SearchReservations.tbReservas.getValueAt(selectedRow, 4));
+
+                    reserveDao.update(reserve);
+                    em.refresh(reserve);
+                    loadDataReserve();
+                } catch (NumberFormatException e) {
+                    // Handle the case where the String cannot be parsed to Long
+                    System.err.println("Error parsing String to Long: " + e.getMessage());
+                }
+            }
         }
     }
+
 }
