@@ -73,10 +73,20 @@ public class HotelConsultService {
         if (selectedRow != -1) {  // If a row is selected
             Object idReserveObject = SearchReservations.tbReservas.getValueAt(selectedRow, 0);
 
-            if (idReserveObject instanceof Long) {
-                // If it's already a Long, no need to cast
-                Long idReserve = (Long) idReserveObject;
+            try {
+                Long idReserve;
 
+                if (idReserveObject instanceof Long) {
+                    // If it's already a Long, no need to cast
+                    idReserve = (Long) idReserveObject;
+                } else if (idReserveObject instanceof String) {
+                    // If it's a String, parse it to Long
+                    idReserve = Long.parseLong((String) idReserveObject);
+                } else {
+                    throw new ClassCastException("ID is neither Long nor String");
+                }
+
+                // Proceed with updating the Reserve
                 Reserve reserve = reserveDao.getById(idReserve);
 
                 reserve.setCheckIn((Date) SearchReservations.tbReservas.getValueAt(selectedRow, 1));
@@ -88,27 +98,13 @@ public class HotelConsultService {
                 reserveDao.update(reserve);
                 em.refresh(reserve);
                 loadDataReserve();
-            } else if (idReserveObject instanceof String) {
-                // If it's a String, parse it to Long
-                try {
-                    Long idReserve = Long.parseLong((String) idReserveObject);
-                    Reserve reserve = reserveDao.getById(idReserve);
 
-                    reserve.setCheckIn((Date) SearchReservations.tbReservas.getValueAt(selectedRow, 1));
-                    reserve.setCheckOut((Date) SearchReservations.tbReservas.getValueAt(selectedRow, 2));
-                    BigDecimal valor = (BigDecimal) SearchReservations.tbReservas.getValueAt(selectedRow, 3);
-                    reserve.setBookingValue(valor);
-                    reserve.setPaymentMethod((String) SearchReservations.tbReservas.getValueAt(selectedRow, 4));
-
-                    reserveDao.update(reserve);
-                    em.refresh(reserve);
-                    loadDataReserve();
-                } catch (NumberFormatException e) {
-                    // Handle the case where the String cannot be parsed to Long
-                    System.err.println("Error parsing String to Long: " + e.getMessage());
-                }
+            } catch (NumberFormatException | ClassCastException e) {
+                // Handle the case where the String cannot be parsed to Long or ID is not Long/String
+                System.err.println("Error processing ID: " + e.getMessage());
             }
         }
     }
 
 }
+
