@@ -18,6 +18,7 @@ import java.util.Date;
 
 public class RegisteGuest {
 
+
     public RegisteGuest(String name, String surname, Date birthDay, String nationality, String cellphone) {
 
         Huesped huesped = new Huesped();
@@ -28,11 +29,13 @@ public class RegisteGuest {
         huesped.setCellphone(cellphone);
 
 
+
         EntityManager em = JPAUtils.getEntityManager();
         DaoHuesped daoHuesped = new DaoHuesped(em);
         em.getTransaction().begin();
         daoHuesped.save(huesped);
         em.getTransaction().commit();
         em.close();
+
     }
 }

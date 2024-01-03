@@ -23,6 +23,7 @@ import javax.swing.ListSelectionModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.text.ParseException;
 
 @SuppressWarnings("serial")
 public class SearchReservations extends JFrame {
@@ -285,10 +286,18 @@ public class SearchReservations extends JFrame {
 				int tabIndex = panel.getSelectedIndex();
 
 				if (tabIndex == 0) {
-					HotelConsultService.UpdateReserve();
+					try {
+						HotelConsultService.UpdateReserve();
+					} catch (ParseException ex) {
+						throw new RuntimeException(ex);
+					}
 				} else if (tabIndex == 1) {
 
-					HotelConsultService.UpdateReserve();
+					try {
+						HotelConsultService.UpdateReserve();
+					} catch (ParseException ex) {
+						throw new RuntimeException(ex);
+					}
 
 				}
 			}

@@ -10,6 +10,8 @@ import org.example.views.SearchReservations;
 import javax.persistence.EntityManager;
 import javax.swing.table.DefaultTableModel;
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -65,44 +67,36 @@ public class HotelConsultService {
     }
 
 
-    public static void UpdateReserve() {
+    public static void UpdateReserve() throws ParseException {
         EntityManager em = JPAUtils.getEntityManager();
         DaoReservation reserveDao = new DaoReservation(em);
         int selectedRow = SearchReservations.tbReservas.getSelectedRow();
 
-        if (selectedRow != -1) {  // If a row is selected
-            Object idReserveObject = SearchReservations.tbReservas.getValueAt(selectedRow, 0);
+        if (selectedRow != -1) {
 
-            try {
-                Long idReserve;
+            Long idReserve = Long.valueOf(SearchReservations.tbReservas.getSelectedRow()) + 1;
+            System.out.println(idReserve);
+            Reserve reserve = reserveDao.getById(idReserve);
 
-                if (idReserveObject instanceof Long) {
-                    // If it's already a Long, no need to cast
-                    idReserve = (Long) idReserveObject;
-                } else if (idReserveObject instanceof String) {
-                    // If it's a String, parse it to Long
-                    idReserve = Long.parseLong((String) idReserveObject);
-                } else {
-                    throw new ClassCastException("ID is neither Long nor String");
-                }
+           // reserve.setCheckIn((Date) SearchReservations.tbReservas.getValueAt(selectedRow, 1));
 
-                // Proceed with updating the Reserve
-                Reserve reserve = reserveDao.getById(idReserve);
+            BigDecimal timestampValue = (BigDecimal) SearchReservations.tbReservas.getValueAt(selectedRow, 2);
+            Date date = new Date(timestampValue.longValue());
+            reserve.setCheckOut(date);
 
-                reserve.setCheckIn((Date) SearchReservations.tbReservas.getValueAt(selectedRow, 1));
-                reserve.setCheckOut((Date) SearchReservations.tbReservas.getValueAt(selectedRow, 2));
-                BigDecimal valor = (BigDecimal) SearchReservations.tbReservas.getValueAt(selectedRow, 3);
-                reserve.setBookingValue(valor);
-                reserve.setPaymentMethod((String) SearchReservations.tbReservas.getValueAt(selectedRow, 4));
 
-                reserveDao.update(reserve);
-                em.refresh(reserve);
-                loadDataReserve();
 
-            } catch (NumberFormatException | ClassCastException e) {
-                // Handle the case where the String cannot be parsed to Long or ID is not Long/String
-                System.err.println("Error processing ID: " + e.getMessage());
-            }
+            String strBooking = (String) SearchReservations.tbReservas.getValueAt(selectedRow, 2);
+            BigDecimal bookingValue = new BigDecimal(strBooking);
+            reserve.setBookingValue(bookingValue);
+
+
+            reserve.setPaymentMethod((String) SearchReservations.tbReservas.getValueAt(selectedRow, 3));
+
+            reserveDao.update(reserve);
+            em.refresh(reserve);
+            loadDataReserve();
+
         }
     }
 
