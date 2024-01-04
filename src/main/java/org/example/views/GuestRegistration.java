@@ -327,13 +327,14 @@ public class GuestRegistration extends JFrame {
 		SuccesesfulRegisteration succesesfulRegisteration = new SuccesesfulRegisteration();
 		succesesfulRegisteration.setVisible(true);
 		dispose();
-	    String nombre = txtNombre.getText();
+	    String name = txtNombre.getText();
 		String apellido = txtApellido.getText();
 		Date fechaN = txtFechaN.getDate();
+		System.out.println("aa"+fechaN);
 		String nacionalidad = txtNacionalidad.getSelectedItem().toString();
 		String telefono = txtTelefono.getText();
 		Long nReserva = Long.parseLong(txtNreserva.getText());
-		RegisteGuest registeGuest = new RegisteGuest(nombre,apellido,fechaN,nacionalidad,telefono);
+		RegisteGuest registeGuest = new RegisteGuest(name,apellido,fechaN,nacionalidad,telefono);
 
 	}
 

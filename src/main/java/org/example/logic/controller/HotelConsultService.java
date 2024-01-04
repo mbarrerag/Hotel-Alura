@@ -68,6 +68,7 @@ public class HotelConsultService {
 
 
     public static void UpdateReserve() throws ParseException {
+
         EntityManager em = JPAUtils.getEntityManager();
         DaoReservation reserveDao = new DaoReservation(em);
         int selectedRow = SearchReservations.tbReservas.getSelectedRow();
@@ -99,6 +100,56 @@ public class HotelConsultService {
 
         }
     }
+
+    public static void updateHuesped() {
+
+        EntityManager em = JPAUtils.getEntityManager();
+
+        DaoHuesped huespedDao = new DaoHuesped(em);
+        int selectedRow = SearchReservations.tbHuespedes.getSelectedRow();
+        if (selectedRow != -1) {
+            Long idHuesped = (Long) SearchReservations.tbHuespedes.getValueAt(selectedRow, 0);
+            Huesped huesped = huespedDao.getById(idHuesped);
+
+            // Resto del código para actualizar el huésped...
+            huesped.setName((String)SearchReservations.tbHuespedes.getValueAt(selectedRow,1));
+            huesped.setSurename((String)SearchReservations.tbHuespedes.getValueAt(selectedRow,2));
+            huesped.setBirthdate((Date) SearchReservations.tbHuespedes.getValueAt(selectedRow,3));
+            huesped.setNationality((String) SearchReservations.tbHuespedes.getValueAt(selectedRow,4));
+            huesped.setCellphone((String) SearchReservations.tbHuespedes.getValueAt(selectedRow,5));
+
+            huespedDao.update(huesped);
+            // Actualizar la tabla después de la edición
+            loadDataHuesped();
+        }
+    }
+
+    public void deletedReserve() {
+        EntityManager em = JPAUtils.getEntityManager();
+        DaoReservation reserveDao = new DaoReservation(em);
+        int selectedRow = SearchReservations.tbReservas.getSelectedRow();
+        if (selectedRow != -1) {
+            Long idReserve = Long.valueOf(SearchReservations.tbReservas.getSelectedRow()) + 1;
+            Reserve reserve = reserveDao.getById(idReserve);
+            reserveDao.deleted(reserve.getId());
+            loadDataReserve();
+        }
+
+    }
+
+    public void deletedHusped() {
+        EntityManager em = JPAUtils.getEntityManager();
+        DaoHuesped huespedDao = new DaoHuesped(em);
+        int selectedRow = SearchReservations.tbHuespedes.getSelectedRow();
+        if (selectedRow != -1) {
+            Long idHuesped = (Long) SearchReservations.tbHuespedes.getValueAt(selectedRow, 0);
+            Huesped huesped = huespedDao.getById(idHuesped);
+            huespedDao.deleted(huesped.getId());
+            loadDataHuesped();
+        }
+    }
+
+
 
 }
 

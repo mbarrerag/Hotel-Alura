@@ -1,6 +1,7 @@
 package org.example.logic.dao;
 
 import org.example.logic.entitites.Huesped;
+import org.example.logic.entitites.Reserve;
 import org.example.logic.utils.JPAUtils;
 
 import javax.persistence.EntityManager;
@@ -37,4 +38,54 @@ public class DaoHuesped {
         return huespedes;
     }
 
+
+    public void update(Huesped huesped) {
+        EntityManager em = JPAUtils.getEntityManager();
+        em.getTransaction().begin();
+        try {
+            // Obtenemos la reserva actual de la base de datos por su id
+            Huesped huespedPersistance = em.find(Huesped.class, huesped.getId());
+
+            // Actualizamos los campos de la reserva persistente con los de la nueva reserva
+            huespedPersistance.setName(huesped.getName());
+            huespedPersistance.setSurename(huesped.getSurename());
+            huespedPersistance.setBirthdate(huesped.getBirthdate());
+            huespedPersistance.setCellphone(huesped.getCellphone());
+
+            // Confirmamos la transacción
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            // Manejo de excepciones
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
+    }
+    public Huesped getById(Long id) {
+        return em.find(Huesped.class, id);
+    }
+
+
+    public void deleted(Long id) {
+        EntityManager em = JPAUtils.getEntityManager();
+        em.getTransaction().begin();
+        try {
+            Huesped huesped = em.find(Huesped.class, id);
+
+            if (huesped != null) {
+                em.remove(huesped);
+            }
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
+    }
 }

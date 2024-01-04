@@ -288,16 +288,13 @@ public class SearchReservations extends JFrame {
 				if (tabIndex == 0) {
 					try {
 						HotelConsultService.UpdateReserve();
+
 					} catch (ParseException ex) {
 						throw new RuntimeException(ex);
 					}
 				} else if (tabIndex == 1) {
 
-					try {
-						HotelConsultService.UpdateReserve();
-					} catch (ParseException ex) {
-						throw new RuntimeException(ex);
-					}
+					HotelConsultService.updateHuesped();
 
 				}
 			}
@@ -318,6 +315,27 @@ public class SearchReservations extends JFrame {
 		lblEliminar.setBounds(0, 0, 122, 35);
 		btnEliminar.add(lblEliminar);
 		setResizable(false);
+
+		btnEliminar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int tabIndex = panel.getSelectedIndex();
+
+				if (tabIndex == 0) {
+					try {
+						HotelConsultService.UpdateReserve();
+
+					} catch (ParseException ex) {
+						throw new RuntimeException(ex);
+					}
+				} else if (tabIndex == 1) {
+
+					HotelConsultService.updateHuesped();
+
+				}
+			}
+		});
+
 	}
 
 //Código que permite mover la ventana por la pantalla según la posición de "x" y "y"

@@ -35,7 +35,6 @@ public class DaoReservation {
         try {
             // Obtenemos la reserva actual de la base de datos por su id
             Reserve reservaPersistente = em.find(Reserve.class, reserva.getId());
-            System.out.println("reservaPersistente"+reserva.getPaymentMethod()+reserva.getCheckIn());
             // Actualizamos los campos de la reserva persistente con los de la nueva reserva
             reservaPersistente.setCheckIn(reserva.getCheckIn());
             reservaPersistente.setCheckOut(reserva.getCheckOut());
@@ -77,6 +76,27 @@ public class DaoReservation {
 
     public Reserve getById(Long id) {
         return em.find(Reserve.class, id);
+    }
+
+
+    public void eliminar(Long id) {
+        EntityManager em = JPAUtils.getEntityManager();
+        em.getTransaction().begin();
+        try {
+            Reserve reserve = em.find(Reserve.class, id);
+
+            if (reserve != null) {
+                em.remove(reserve);
+            }
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
     }
 
 
