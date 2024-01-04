@@ -139,6 +139,7 @@ public class SearchReservations extends JFrame {
 		modeloHuesped.addColumn("Nationality");
 		modeloHuesped.addColumn("Cellphone");
 		modeloHuesped.addColumn("Reservation Number");
+
 		JScrollPane scroll_tableHuespedes = new JScrollPane(tbHuespedes);
 		panel.addTab("Huéspedes", new ImageIcon("src/main/java/org/example/imgs/pessoas.png"), scroll_tableHuespedes, null);
 		scroll_tableHuespedes.setVisible(true);

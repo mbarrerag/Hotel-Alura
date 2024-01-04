@@ -19,7 +19,6 @@ public class HotelConsultService {
 
 
 
-
     public static void loadDataReserve() {
 
         DefaultTableModel modelo = (DefaultTableModel) SearchReservations.tbReservas.getModel();
@@ -30,11 +29,16 @@ public class HotelConsultService {
         List<Reserve> reserves = reservaDao.getAllReservas();
 
         for (Reserve reserve : reserves) {
+
+            System.out.println(reserve.getReservationNumber());
             Object[] fila = new Object[]{
                     reserve.getCheckIn(),
                     reserve.getCheckOut(),
                     reserve.getBookingValue(),
-                    reserve.getPaymentMethod()
+                    reserve.getPaymentMethod(),
+                    reserve.getReservationNumber(),
+
+
             };
             modelo.addRow(fila);
         }
@@ -59,6 +63,7 @@ public class HotelConsultService {
                     huesped.getBirthdate(),
                     huesped.getNationality(),
                     huesped.getCellphone(),
+                    huesped.getId(),
 
             };
             modelo.addRow(fila);
@@ -173,7 +178,6 @@ public class HotelConsultService {
 
     }
 
+ }
 
-
-}
 

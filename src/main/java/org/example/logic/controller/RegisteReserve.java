@@ -20,6 +20,8 @@ public class RegisteReserve {
                 reserve.setCheckOut(dateCheckOut);
                 reserve.setPaymentMethod(paymentMethod);
                 reserve.setBookingValue(bookingValue);
+
+
         EntityManager em = JPAUtils.getEntityManager();
         DaoReservation daoReservation = new DaoReservation(em);
 

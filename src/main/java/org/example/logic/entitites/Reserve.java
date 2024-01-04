@@ -18,7 +18,7 @@ public class Reserve {
     private Date checkOut;
     private BigDecimal bookingValue;
     private String paymentMethod;
-
+    private int reservationNumber;
     @ManyToOne
     @JoinColumn(name = "huesped_id")
     private Huesped huesped;
@@ -69,5 +69,13 @@ public class Reserve {
 
     public void setHuesped(Huesped huesped) {
         this.huesped = huesped;
+    }
+
+    public int getReservationNumber() {
+        return reservationNumber;
+    }
+
+    public void setReservationNumber(int reservationNumber) {
+        this.reservationNumber = reservationNumber;
     }
 }
