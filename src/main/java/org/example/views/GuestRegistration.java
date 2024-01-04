@@ -212,12 +212,12 @@ public class GuestRegistration extends JFrame {
 		lblTitulo.setFont(new Font("Roboto Black", Font.PLAIN, 23));
 		contentPane.add(lblTitulo);
 		
-		JLabel lblNumeroReserva = new JLabel("Reservation number");
+		JLabel lblNumeroReserva = new JLabel("Address");
 		lblNumeroReserva.setBounds(560, 474, 253, 14);
 		lblNumeroReserva.setForeground(SystemColor.textInactiveText);
 		lblNumeroReserva.setFont(new Font("Roboto Black", Font.PLAIN, 18));
 		contentPane.add(lblNumeroReserva);
-		
+
 		txtNreserva = new JTextField();
 		txtNreserva.setFont(new Font("Roboto", Font.PLAIN, 16));
 		txtNreserva.setBounds(560, 495, 285, 33);
