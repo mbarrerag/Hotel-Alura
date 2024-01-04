@@ -88,4 +88,18 @@ public class DaoHuesped {
             em.close();
         }
     }
+
+    public Huesped getByCellphone(String cellphone) {
+        EntityManager em = JPAUtils.getEntityManager();
+        Huesped huesped = null;
+        try {
+            String jpql = "SELECT h FROM Huesped h WHERE h.cellphone = :cellphone";
+            huesped = em.createQuery(jpql, Huesped.class).setParameter("cellphone", cellphone).getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
+        return huesped;
+    }
 }

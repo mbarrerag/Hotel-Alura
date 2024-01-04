@@ -124,7 +124,7 @@ public class HotelConsultService {
         }
     }
 
-    public void deletedReserve() {
+    public static void deletedReserve() {
         EntityManager em = JPAUtils.getEntityManager();
         DaoReservation reserveDao = new DaoReservation(em);
         int selectedRow = SearchReservations.tbReservas.getSelectedRow();
@@ -137,16 +137,40 @@ public class HotelConsultService {
 
     }
 
-    public void deletedHusped() {
+    public static void deletedHusped() {
+
         EntityManager em = JPAUtils.getEntityManager();
         DaoHuesped huespedDao = new DaoHuesped(em);
         int selectedRow = SearchReservations.tbHuespedes.getSelectedRow();
         if (selectedRow != -1) {
             Long idHuesped = (Long) SearchReservations.tbHuespedes.getValueAt(selectedRow, 0);
             Huesped huesped = huespedDao.getById(idHuesped);
+            System.out.println(huesped.getName());
             huespedDao.deleted(huesped.getId());
             loadDataHuesped();
         }
+    }
+
+
+
+    public static void getByCellphone( String cellphone) {
+        EntityManager em = JPAUtils.getEntityManager();
+        DaoHuesped huespedDao = new DaoHuesped(em);
+        Huesped huesped = huespedDao.getByCellphone(cellphone);
+        DefaultTableModel modelo = (DefaultTableModel) SearchReservations.tbHuespedes.getModel();
+        modelo.setRowCount(0);
+        Object[] fila = new Object[]{
+                huesped.getId(),
+                huesped.getName(),
+                huesped.getSurename(),
+                huesped.getBirthdate(),
+                huesped.getNationality(),
+                huesped.getCellphone(),
+
+        };
+        modelo.addRow(fila);
+
+
     }
 
 

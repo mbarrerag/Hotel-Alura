@@ -2,24 +2,11 @@ package org.example.views;
 
 import org.example.logic.controller.HotelConsultService;
 
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import java.awt.*;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.ImageIcon;
-import java.awt.Color;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTabbedPane;
-import java.awt.Toolkit;
-import javax.swing.SwingConstants;
-import javax.swing.JSeparator;
-import javax.swing.ListSelectionModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -79,11 +66,13 @@ public class SearchReservations extends JFrame {
 		txtBuscar.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		contentPane.add(txtBuscar);
 		txtBuscar.setColumns(10);
-		
-		
+
+
+
+
 		JLabel lblNewLabel_4 = new JLabel("SISTEMA DE BÚSQUEDA");
 		lblNewLabel_4.setForeground(new Color(12, 138, 199));
-		lblNewLabel_4.setFont(new Font("Roboto Black", Font.BOLD, 24));
+		lblNewLabel_4.setFont(new Font("Roboto Black", Font.BOLD, 20));
 		lblNewLabel_4.setBounds(331, 62, 280, 42);
 		contentPane.add(lblNewLabel_4);
 		
@@ -91,6 +80,7 @@ public class SearchReservations extends JFrame {
 		panel.setBackground(new Color(12, 138, 199));
 		panel.setFont(new Font("Roboto", Font.PLAIN, 16));
 		panel.setBounds(20, 169, 865, 328);
+
 		contentPane.add(panel);
 		panel.addChangeListener(new ChangeListener() {
 			@Override
@@ -246,13 +236,6 @@ public class SearchReservations extends JFrame {
 
 
 		JPanel btnbuscar = new JPanel();
-		btnbuscar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-
-			}
-		});
-
 		btnbuscar.setLayout(null);
 		btnbuscar.setBackground(new Color(12, 138, 199));
 		btnbuscar.setBounds(748, 125, 122, 35);
@@ -265,6 +248,15 @@ public class SearchReservations extends JFrame {
 		lblBuscar.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBuscar.setForeground(Color.WHITE);
 		lblBuscar.setFont(new Font("Roboto", Font.PLAIN, 18));
+
+		btnbuscar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// Acción a realizar cuando se hace clic en el panel
+				String textoBusqueda = txtBuscar.getText();
+				HotelConsultService.getByCellphone(textoBusqueda);
+			}
+		});
 		
 		JPanel btnEditar = new JPanel();
 		btnEditar.setLayout(null);
@@ -322,15 +314,11 @@ public class SearchReservations extends JFrame {
 				int tabIndex = panel.getSelectedIndex();
 
 				if (tabIndex == 0) {
-					try {
-						HotelConsultService.UpdateReserve();
+					HotelConsultService.deletedReserve();
 
-					} catch (ParseException ex) {
-						throw new RuntimeException(ex);
-					}
 				} else if (tabIndex == 1) {
 
-					HotelConsultService.updateHuesped();
+					HotelConsultService.deletedHusped();
 
 				}
 			}
