@@ -1,16 +1,12 @@
 package org.example.views;
 import java.awt.*;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JTextField;
+
 import com.toedter.calendar.JDateChooser;
 
 import org.example.logic.controller.RegisteReserve;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -19,10 +15,9 @@ import java.beans.PropertyChangeEvent;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.chrono.ChronoLocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
-import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 
@@ -378,17 +373,29 @@ public class ReservationsView extends JFrame {
 
 	}
 	public void nextBottom(){
-		GuestRegistration menu = new GuestRegistration();
-		menu.setVisible(true);
-		dispose();
+
+
 		Date lblCheckIn = txtFechaEntrada.getDate();
 		Date lblCheckOut = txtFechaSalida.getDate();
 		String lblFormaPago = txtFormaPago.getSelectedItem().toString();
 		String lblValor = txtValor.getText();
 		BigDecimal valorBigDecimal = new BigDecimal(lblValor);
 
+		LocalDate localInformation = txtFechaEntrada.getDate().toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+		LocalDate localDate = LocalDate.now();
+		if(txtFechaEntrada.getDate() != null && localInformation.isAfter(localDate) && txtFechaSalida.getDate() != null && txtFechaEntrada.getDate().before(txtFechaSalida.getDate()) ) {
+			GuestRegistration menu = new GuestRegistration();
+			menu.setVisible(true);
+			dispose();
+			try {
+RegisteReserve registeReserve = new RegisteReserve(lblCheckIn, lblCheckOut, lblFormaPago, valorBigDecimal);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
-		RegisteReserve registeReserve = new RegisteReserve(lblCheckIn, lblCheckOut, lblFormaPago, valorBigDecimal);
+		}else {
+			JOptionPane.showMessageDialog(null, "Please check the information entered");
+		}
 	}
 
 	public static long bookingPaidment() {

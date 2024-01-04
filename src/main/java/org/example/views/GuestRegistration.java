@@ -111,7 +111,20 @@ public class GuestRegistration extends JFrame {
 		txtNombre.setColumns(10);
 		txtNombre.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		contentPane.add(txtNombre);
+		btnAtras.addMouseListener(new MouseAdapter() {
+									  @Override
+									  public void mouseClicked(MouseEvent e) {
+										  ReservationsView usuario = new ReservationsView();
+										  usuario.setVisible(true);
+										  dispose();
+									  }
 
+									  @Override
+									  public void mouseEntered(MouseEvent e) {
+										  btnAtras.setBackground(new Color(12, 138, 199));
+										  labelAtras.setForeground(Color.white);
+									  }
+								  });
 		JPanel btnexit = new JPanel();
 		btnexit.addMouseListener(new MouseAdapter() {
 			@Override
