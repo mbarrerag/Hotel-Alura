@@ -1,5 +1,5 @@
 
-
+Video: https://www.youtube.com/watch?v=caC4aM-6Tdk
 
 # Hotel Alura - Java Application with Hibernate ORM
 
