@@ -1,6 +1,5 @@
-![image](https://github.com/mbarrerag/Alura-Hotel/assets/101472701/633d9c37-6eee-4613-aee4-239f2cfb90fc)
-![image](https://github.com/mbarrerag/Alura-Hotel/assets/101472701/694ac22c-d69e-4f52-8caa-52aeb925ecb0)
-![image](https://github.com/mbarrerag/Alura-Hotel/assets/101472701/25af4306-6a9b-4d87-966a-ea3198ecd68a)
+
+
 
 # Hotel Alura - Java Application with Hibernate ORM
 
