@@ -64,7 +64,6 @@ public class HotelConsultService {
                     huesped.getNationality(),
                     huesped.getCellphone(),
                     huesped.getId(),
-
             };
             modelo.addRow(fila);
 

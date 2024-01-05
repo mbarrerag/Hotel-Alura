@@ -346,7 +346,7 @@ public class GuestRegistration extends JFrame {
 		System.out.println("aa"+fechaN);
 		String nacionalidad = txtNacionalidad.getSelectedItem().toString();
 		String telefono = txtTelefono.getText();
-		Long nReserva = Long.parseLong(txtNreserva.getText());
+
 		RegisteGuest registeGuest = new RegisteGuest(name,apellido,fechaN,nacionalidad,telefono);
 
 	}
