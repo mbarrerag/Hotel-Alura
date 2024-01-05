@@ -1,6 +1,10 @@
 
 Video: https://www.youtube.com/watch?v=caC4aM-6Tdk
 
+![image](https://github.com/mbarrerag/Alura-Hotel/assets/101472701/633d9c37-6eee-4613-aee4-239f2cfb90fc)
+![image](https://github.com/mbarrerag/Alura-Hotel/assets/101472701/694ac22c-d69e-4f52-8caa-52aeb925ecb0)
+![image](https://github.com/mbarrerag/Alura-Hotel/assets/101472701/25af4306-6a9b-4d87-966a-ea3198ecd68a)
+
 # Hotel Alura - Java Application with Hibernate ORM
 
 Hotel Alura is a simple Java application designed for managing hotel-related information using Hibernate as an Object-Relational Mapping (ORM) tool. This application allows you to perform CRUD (Create, Read, Update, Delete) operations on hotel entities, utilizing the power of Hibernate to interact with the underlying relational database. It has a basic login with the corresponding procedure to save information about reserves and huespeds
