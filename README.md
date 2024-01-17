@@ -11,21 +11,25 @@ Hotel Alura is a simple Java application designed for managing hotel-related inf
 
 ## Features
 
-User Authentication System:
+# User Authentication System
 
-*Only hotel members should have access to the system.
-Reservation Management for Clients:
+Only hotel members should have access to the system.
 
-*Create, edit, and delete reservations for clients.
-Comprehensive Database Search:
+# Reservation Management for Clients:
 
-*Retrieve all information from both clients and reservations stored in the database.
-Guest Data Management:
+ Create, edit, and delete reservations for clients.
 
-*Register, edit, and delete guest details.
-Reservation Cost Calculation:
+# Comprehensive Database Search:
 
-*Automatically calculate the reservation cost based on the number of days and a daily rate that can be set by you. For example, if a reservation is for 3 days and the daily rate is $20, the system should calculate and display the total cost (3 days * $20 = $60) before saving the reservation.
+ Retrieve all information from both clients and reservations stored in the database.
+
+## Guest Data Management:
+
+ Register, edit, and delete guest details.
+
+# Reservation Cost Calculation:
+
+Automatically calculate the reservation cost based on the number of days and a daily rate that can be set by you. For example, if a reservation is for 3 days and the daily rate is $20, the system should calculate and display the total cost (3 days * $20 = $60) before saving the reservation.
 
 
 ## Database Implementation:
