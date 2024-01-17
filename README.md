@@ -9,12 +9,28 @@ Video: https://www.youtube.com/watch?v=caC4aM-6Tdk
 
 Hotel Alura is a simple Java application designed for managing hotel-related information using Hibernate as an Object-Relational Mapping (ORM) tool. This application allows you to perform CRUD (Create, Read, Update, Delete) operations on hotel entities, utilizing the power of Hibernate to interact with the underlying relational database. It has a basic login with the corresponding procedure to save information about reserves and huespeds
 
-## Requirements
+## Features
 
-- Java Development Kit (JDK) 8 or later
-- Hibernate ORM
-- Database (e.g., MySQL, PostgreSQL) and corresponding JDBC driver
-- Build tool (e.g., Maven or Gradle)
+User Authentication System:
+
+*Only hotel members should have access to the system.
+Reservation Management for Clients:
+
+*Create, edit, and delete reservations for clients.
+Comprehensive Database Search:
+
+*Retrieve all information from both clients and reservations stored in the database.
+Guest Data Management:
+
+*Register, edit, and delete guest details.
+Reservation Cost Calculation:
+
+*Automatically calculate the reservation cost based on the number of days and a daily rate that can be set by you. For example, if a reservation is for 3 days and the daily rate is $20, the system should calculate and display the total cost (3 days * $20 = $60) before saving the reservation.
+
+
+## Database Implementation:
+
+Set up a database to store all the required data. Based on the business rules
 
 ## Setup
 
