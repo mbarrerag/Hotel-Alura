@@ -7,7 +7,12 @@ Video: https://www.youtube.com/watch?v=caC4aM-6Tdk
 
 # Hotel Alura - Java Application with Hibernate ORM
 
-Hotel Alura is a simple Java application designed for managing hotel-related information using Hibernate as an Object-Relational Mapping (ORM) tool. This application allows you to perform CRUD (Create, Read, Update, Delete) operations on hotel entities, utilizing the power of Hibernate to interact with the underlying relational database. It has a basic login with the corresponding procedure to save information about reserves and huespeds
+Hotel Alura is a simple Java application designed for managing hotel-related information using Hibernate as an Object-Relational Mapping (ORM) tool. This application allows you to perform CRUD (Create, Read, Update, Delete) operations on hotel entities, utilizing the power of Hibernate to interact with the underlying relational database. It has a basic login with the corresponding procedure to save information about reserves and huespeds.
+This project follow the DAO pattern and MVC pattern.
+The pacaage Entities contains the classes that represent the tables in the database.
+The package DAO contains the classes that make the connection with the database and the methods to save, update, delete and read the information.
+The package Controller contains the classes that make the connection between the view and the model.
+The package View contains the classes that show the information to the user and receive the information from the user.
 
 ## Features
 
