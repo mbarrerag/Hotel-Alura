@@ -19,7 +19,7 @@ The package DAO contains the classes that make the connection with the database 
 The package Controller contains the classes that make the connection between the view and the model.
 The package View contains the classes that show the information to the user and receive the information from the user.
 
-## Features
+# Features
 
 # User Authentication System
 
