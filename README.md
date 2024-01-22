@@ -1,8 +1,11 @@
 
-Video: https://www.youtube.com/watch?v=caC4aM-6Tdk
+
+## Video: https://www.youtube.com/watch?v=caC4aM-6Tdk
 
 ![image](https://github.com/mbarrerag/Alura-Hotel/assets/101472701/633d9c37-6eee-4613-aee4-239f2cfb90fc)
+<hr>
 ![image](https://github.com/mbarrerag/Alura-Hotel/assets/101472701/694ac22c-d69e-4f52-8caa-52aeb925ecb0)
+<hr>
 ![image](https://github.com/mbarrerag/Alura-Hotel/assets/101472701/25af4306-6a9b-4d87-966a-ea3198ecd68a)
 
 # Hotel Alura - Java Application with Hibernate ORM
@@ -11,7 +14,7 @@ Hotel Alura is a simple Java application designed for managing hotel-related inf
 This project follow the DAO pattern and MVC pattern.
 <hr>
 
-The pacaage Entities contains the classes that represent the tables in the database.
+The package Entities contains the classes that represent the tables in the database.
 The package DAO contains the classes that make the connection with the database and the methods to save, update, delete and read the information.
 The package Controller contains the classes that make the connection between the view and the model.
 The package View contains the classes that show the information to the user and receive the information from the user.
