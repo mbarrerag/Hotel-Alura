@@ -7,8 +7,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 
 import com.toedter.calendar.JDateChooser;
-import org.example.logic.controller.RegisteGuest;
-import org.example.logic.controller.RegisteReserve;
+import org.example.logic.controller.RegisterGuest;
 
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -17,7 +16,6 @@ import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
-import java.math.BigDecimal;
 import java.text.Format;
 import java.util.Date;
 import javax.swing.SwingConstants;
@@ -347,7 +345,7 @@ public class GuestRegistration extends JFrame {
 		String nacionalidad = txtNacionalidad.getSelectedItem().toString();
 		String telefono = txtTelefono.getText();
 
-		RegisteGuest registeGuest = new RegisteGuest(name,apellido,fechaN,nacionalidad,telefono);
+		RegisterGuest registerGuest = new RegisterGuest(name,apellido,fechaN,nacionalidad,telefono);
 
 	}
 

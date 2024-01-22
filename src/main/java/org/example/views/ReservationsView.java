@@ -4,8 +4,8 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 import com.toedter.calendar.JDateChooser;
+import org.example.logic.controller.RegisterReserve;
 
-import org.example.logic.controller.RegisteReserve;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -388,7 +388,7 @@ public class ReservationsView extends JFrame {
 			menu.setVisible(true);
 			dispose();
 			try {
-RegisteReserve registeReserve = new RegisteReserve(lblCheckIn, lblCheckOut, lblFormaPago, valorBigDecimal);
+RegisterReserve registeReserve = new RegisterReserve(lblCheckIn, lblCheckOut, lblFormaPago, valorBigDecimal);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
